@@ -4,12 +4,6 @@ export interface NavLink {
     href: string;
 }
 
-// links.ts
-export interface NavLink {
-    label: string;
-    href: string;
-}
-
 export const mainLinks: NavLink[] = [
     { label: "Company", href: "#company" },
     { label: "Solutions", href: "#solutions" },

@@ -12,7 +12,6 @@ const Footer = () => {
                 {/* Left Section */}
                 <div className="footer-left">
                     <div style={{ marginBottom: "20px" }}>
-                        {/* <img src={logo.src} alt="Vgenomics" style={{ height: "40px" }} /> */}
                         <Image src='/white-vgenomics.png' alt="Vgenomics" height={40} width={160} />
 
                     </div>
