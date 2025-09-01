@@ -1,0 +1,118 @@
+/* @font-face {
+    font-family: 'Geist';
+    src: url('./assets/fonts/Geist/Geist-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('./assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #F9F8F6;
+}
+
+.ant-typography h1,
+.ant-typography h2,
+.ant-typography h3,
+.ant-typography h4,
+.ant-typography h5 {
+    font-family: 'Geist', sans-serif !important;
+}
+
+.ant-card-body {
+    padding: 0% !important;
+    border-radius: none;
+}
+
+.ant-card {
+    border: none;
+}
+
+.form-container {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6%;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 0 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    background: #DADADA;
+}
+
+.form-title {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 2rem;
+    font-family: 'Geist', sans-serif;
+}
+
+.form-label {
+    font-weight: bold;
+    /* margin: 2rem 0 1rem 0; */
+}
+
+.form-button {
+    width: 100%;
+    background-color: #030101;
+    border-color: #030101;
+}
+
+.form-button:hover {
+    width: 100%;
+    background-color: #fff !important;
+    border-color: #030101;
+    color: #000000 !important;
+}
+
+
+
+/* ChatBot.css */
+
+.chatbot-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 7%;
+    height: 70vh;
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #dfdae4;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    font-family: 'Geist', Verdana, sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive adjustments for tablets */
+@media (max-width: 1024px) {
+    .chatbot-wrapper {
+        flex-direction: column;
+        height: auto;
+        width: 90%;
+    }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+    .chatbot-wrapper {
+        margin: 16px;
+        width: 95%;
+        border-radius: 8px;
+        box-shadow: none;
+    }
+}
