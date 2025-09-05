@@ -1,11 +1,10 @@
-// LinkList.tsx
 import React from "react";
 import { NavLink } from "./links";
 
 interface LinkListProps {
     links: NavLink[];
     className?: string;
-    separator?: React.ReactNode; // Optional separator like "|"
+    separator?: React.ReactNode;
 }
 
 const LinkList: React.FC<LinkListProps> = ({ links, className, separator }) => {

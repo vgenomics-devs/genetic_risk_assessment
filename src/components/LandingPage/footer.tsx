@@ -12,8 +12,7 @@ const Footer = () => {
                 {/* Left Section */}
                 <div className="footer-left">
                     <div style={{ marginBottom: "20px" }}>
-                        <Image src='/white-vgenomics.png' alt="Vgenomics" height={40} width={160} />
-
+                        <Image src='/Vgen_Logo.png' alt="Vgenomics" height={26} width={160} />
                     </div>
                     <p className="footer-tagline">
                         Accelerating Discoveries <br />
@@ -23,16 +22,15 @@ const Footer = () => {
 
                 {/* Middle Section */}
                 <div className="footer-middle">
-                    <LinkList links={mainLinks} className='flex flex-col gap-4 footer-middle' />
+                    <LinkList links={mainLinks.slice(1, 6)} className='flex flex-col gap-4 footer-middle' />
                 </div>
 
                 {/* Right Section */}
                 <div className="footer-right">
-                    <p>Delhi</p>
                     <p>
                         <a href="mailto:support@vgenomics.co.in">support@vgenomics.co.in</a>
                     </p>
-                    <p>0120 4081198</p>
+                    <p>+91-120-408 1198</p>
                 </div>
             </div>
 
@@ -42,7 +40,7 @@ const Footer = () => {
                     <LinkList links={bottomLinks} separator="|" />
                 </div>
                 <p style={{ margin: 0, color: "white" }}>
-                    Copyright © 2025 Vgenomics | All rights reserved
+                    Copyright © 2025 Vgenomics  |  All rights reserved
                 </p>
             </div>
         </footer>

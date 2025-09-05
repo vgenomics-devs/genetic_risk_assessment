@@ -5,16 +5,18 @@ export interface NavLink {
 }
 
 export const mainLinks: NavLink[] = [
-    { label: "Company", href: "#company" },
-    { label: "Solutions", href: "#solutions" },
-    { label: "Our Science", href: "#science" },
-    { label: "Patients", href: "#patients" },
-    { label: "Careers", href: "#careers" },
+    { label: "Home", href: "https://vgenomics.in/" },
+    { label: "Company", href: "https://vgenomics.in/company/" },
+    { label: "Solutions", href: "https://vgenomics.in/solutions-for-labs/" },
+    { label: "Our Science", href: "https://vgenomics.in/our-science/" },
+    { label: "Patients", href: "https://vgenomics.in/patients/" },
+    { label: "Careers", href: "https://vgenomics.in/careers/" },
+    { label: "Contact Us", href: "https://vgenomics.in/company/#enquiry" },
 ];
 
 export const bottomLinks: NavLink[] = [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of use", href: "#" },
+    { label: "Privacy Policy", href: "https://vgenomics.in/privacy-policy/" },
+    { label: "Terms of Use", href: "https://vgenomics.in/terms-of-use/" },
 ];
 
 

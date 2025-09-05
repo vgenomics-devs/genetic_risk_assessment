@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
         <nav className="navbar">
             {/* Logo */}
             <div className="navbar-logo">
-                <img src="/white-vgenomics.png" alt="VGenomics Logo" />
+                <a href="https://vgenomics.in/"><img src="/white-vgenomics.png" alt="VGenomics Logo" /></a>
             </div>
 
             {/* Desktop Links */}
