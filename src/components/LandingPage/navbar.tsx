@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
             <div className={`sidebar ${isOpen ? "open" : ""}`}>
                 <LinkList
                     links={mainLinks}
-                    className="flex flex-col gap-2 pl-2"
+                    className="flex flex-col gap-2 pl-2 "
                     separator={<br />}
                 />
             </div>

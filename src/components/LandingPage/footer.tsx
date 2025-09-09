@@ -12,7 +12,7 @@ const Footer = () => {
                 {/* Left Section */}
                 <div className="footer-left">
                     <div style={{ marginBottom: "20px" }}>
-                        <Image src='/Vgen_Logo.png' alt="Vgenomics" height={26} width={160} />
+                        <Image src='/Vgen_Logo.png' alt="Vgenomics" height={20} width={160} />
                     </div>
                     <p className="footer-tagline">
                         Accelerating Discoveries <br />
