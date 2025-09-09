@@ -90,7 +90,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
                 overflowY: "auto",
             }}
         >
-            <h2 style={{ textAlign: "center", marginBottom: 16 }}>ChatBot</h2>
+            <h2 style={{ textAlign: "center", marginBottom: 16 }}>Genetic Risk Assessment</h2>
 
             {chat.map((msg, idx) => (
                 <div key={idx} style={msg.sent ? styles.bubbleUser : styles.bubbleBot}>

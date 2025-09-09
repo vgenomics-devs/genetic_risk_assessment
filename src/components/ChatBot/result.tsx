@@ -147,7 +147,7 @@ const ResultPanel: React.FC<ResultPanelProps> = ({ resultData, navigate }) => {
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginTop: 16 }}>
                 {['severe risk', 'high risk'].includes(resultData.riskLevel?.toLowerCase() || '') && (
-                    <Button style={styles.resultBT} type="primary" onClick={() => navigate('/rarepredict')}>
+                    <Button style={styles.resultBT} type="primary" onClick={() => navigate('http://www.rarepredict.vgenomics.in/')}>
                         Explore Rare Predict
                     </Button>
                 )}

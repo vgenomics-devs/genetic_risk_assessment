@@ -1,25 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, DatePicker, Button, message, Typography, Card } from 'antd';
 import dayjs, { Dayjs } from 'dayjs';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/navigation';
-// import './index.css';
 
 const { Title } = Typography;
 const API_CHATBOT_BASE_URL = 'http://35.200.230.149:3000';
 
-interface StartAssessmentResponse {
-    conversation_id: string;
-    question: string;
-    choices: string[];
-}
-
 const StartAssessmentForm: React.FC = () => {
     const [form] = Form.useForm();
     const router = useRouter();
-    const [dob, setDob] = useState<Dayjs | null>(null);
+
+    const [today, setToday] = useState<Dayjs | null>(null);
+
+    useEffect(() => {
+        setToday(dayjs().endOf('day'));
+    }, []);
 
     const startAssessment = async (dob: Dayjs, user_id: string): Promise<void> => {
         const ageInMonths = dayjs().diff(dob, 'month');
@@ -40,7 +38,7 @@ const StartAssessmentForm: React.FC = () => {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
 
-            const data: StartAssessmentResponse = await res.json();
+            const data = await res.json();
 
             const query = new URLSearchParams({
                 user_id,
@@ -63,13 +61,13 @@ const StartAssessmentForm: React.FC = () => {
         startAssessment(dob, userId);
     };
 
+    // Only validate when `today` is set (client side)
     const validate = {
         dateOfBirth: [
             { required: true, message: 'Date of birth is required' },
             {
                 validator: (_: unknown, value: Dayjs) => {
-                    if (!value) return Promise.resolve();
-                    const today = dayjs().endOf('day');
+                    if (!value || !today) return Promise.resolve();
                     if (value.isAfter(today)) {
                         return Promise.reject(new Error('Date of birth cannot be in the future'));
                     }
@@ -79,47 +77,61 @@ const StartAssessmentForm: React.FC = () => {
         ],
     };
 
-    const isDobInvalid = dob ? dob.isAfter(dayjs().endOf('day')) : false;
+    const dob = Form.useWatch('dob', form);
+    const isDobInvalid = dob && today ? dob.isAfter(today) : false;
 
     const styles: Record<string, React.CSSProperties> = {
         container: {
-            height: 'auto',
+            maxHeight: 130,
+            minWidth: 320,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: '#fff',
+            // padding: '20px 0',
+            boxSizing: 'border-box',
+            marginBottom: 0,
+
         },
         card: {
-            padding: '0px',
+            padding: '16px 24px',
             border: 'none',
+            width: 320,
+            boxSizing: 'border-box',
         },
         button: {
             width: '100%',
             backgroundColor: 'black',
             color: 'white',
             fontWeight: 600,
-            height: '40px',
+            height: 40,
+            marginBottom: 0,
         },
     };
+
+    if (!today) {
+        // Return a div with same size so no jump happens
+        return <div style={{ minHeight: 200, minWidth: 320 }} />;
+    }
 
     return (
         <div style={styles.container}>
             <Card style={styles.card}>
-                <Title level={4} style={{ textAlign: 'center', marginBottom: 24 }}>
+                <Title level={4} style={{ textAlign: 'center' }}>
                     {/* Optional title */}
                 </Title>
                 <Form
                     form={form}
                     layout="vertical"
                     onFinish={onFinish}
-                    style={{ display: 'flex', gap: '36px' }}
+                    style={{ display: 'flex', gap: 16, textAlign: 'center', alignItems: 'start', }}
                 >
                     <Form.Item name="dob" label="" rules={validate.dateOfBirth}>
                         <DatePicker
-                            style={{ width: '200px', border: '2px solid black', height: '40px' }}
+                            style={{ width: 200, border: '2px solid black', height: 40 }}
                             format="YYYY-MM-DD"
                             placeholder="Select DOB"
-                            onChange={(value) => setDob(value)}
+                            disabledDate={(current) => current && current > today}
                         />
                     </Form.Item>
 

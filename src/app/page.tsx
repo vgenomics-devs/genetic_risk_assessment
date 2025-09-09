@@ -30,6 +30,8 @@ const slides: Slide[] = [
   },
 ];
 
+
+
 export default function Home() {
   const [active, setActive] = useState(1);
   const formRef = useRef<HTMLDivElement>(null);
@@ -41,9 +43,9 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToForm = () => {
+  //   formRef.current?.scrollIntoView({ behavior: "smooth" });
+  // };
 
   return (
     <>
